@@ -1,0 +1,73 @@
+
+
+To attach a storage for an instance   it requires following operations 
+
+            𝟏. 𝐇𝐚𝐫𝐝 𝐝𝐢𝐬𝐤
+            𝟐. 𝐏𝐚𝐫𝐭𝐢𝐭𝐢𝐨𝐧
+            𝟑. 𝐟𝐨𝐫𝐦𝐚𝐭
+            𝟒. 𝐀𝐭𝐭𝐚𝐜𝐡 𝐭𝐨 𝐚𝐧𝐲 𝐝𝐫𝐢𝐯𝐞
+
+
+The size of a storage i sdefined in GiB   not GB
+    1 GiB   = 1024  MiB
+
+
+                        -   Linux       -     ext4    -    mountpoint
+Partition formats   
+                        -  windows       -    ntfs     -   drives
+
+𝐒𝐓𝐀𝐀𝐒        :    storage as a service
+
+
+              -   Block  ( raw )  -  EBS    -  used to install  os from scratch
+𝐬𝐭𝐨𝐫𝐚𝐠𝐞        -   File           -  EFS     -  no low level access  ie. partition access and format access
+              - Object Storage    -  S3     -   no low level access  ie. partition access and format access   
+
+
+
+                          -    Empheral      -    C:
+𝐁𝐥𝐨𝐜𝐤 𝐒𝐭𝐨𝐫𝐚𝐠𝐞    (𝐄𝐁𝐒)     
+                           -  Persistent     -    Pendrive
+
+
+In an any of the instance we launch . to make some data in the instance to be permanent  we attach an EBS volume which  exists even after the termination of OS
+
+
+
+
+𝐟𝐝𝐢𝐬𝐤   -𝐥        :   command to know the no of hard disks attached to the instance
+
+𝐟𝐝𝐢𝐬𝐤   /𝐝𝐞𝐯/𝐱𝐯𝐝𝐢        and  followed by the options     n , size(ex:+2GiB)   , p , w  :  here   /dev/xvdi    is the name of hard disk
+
+              command used for partition of the drive to required size
+          
+𝐦𝐤𝐟𝐬.𝐞𝐱𝐭𝟒   /𝐝𝐞𝐯/𝐱𝐯𝐝𝐢       :   command used for formattig the  drive 
+
+𝐦𝐨𝐮𝐧𝐭   /𝐝𝐞𝐯/𝐱𝐯𝐝𝐢      <𝐟𝐨𝐥𝐝𝐞𝐫 𝐧𝐚𝐦𝐞 >        :      used to mount partitioned volume to particular folder 
+  
+𝐝𝐟  -𝐡𝐓       :  used for the drivers info of that particular instance
+  
+Create some data in the folder for which the EBS volume is attached and terminate the instance   but the EBSvolume still exists  in volumes 
+  
+  create an instance  and attach this EBS volume   to the new instance and check the data by connecting to the instance
+  
+  
+  The process of connecting EBS storage from one instance to another   is  as follows 
+   
+       OS1  ( NIC card ) ( Dest OS   )     --------------  ISCSI  /  FC    protocol   -----------------   OS2  ( SAN  )   (Source OS )
+  
+  
+  
+  
+  to make the process  faster the storage  and the computing should be  closer    
+  
+  
+  
+   we cannot attach the EBS volume  from instance in one region  to instance in other region      for such case  we use  snapshots 
+  
+  
+  
+
+            
+
+
