@@ -1,0 +1,17 @@
+we connect to the aws linux instance remotely using ssh 
+
+to connect to the windows instance remotely we use RDP 
+
+user   -------------->  ssh   --------------->   Linux 
+
+user   -------------->  RDP  --------------->   windows 
+
+  
+
+each time we restart the instance it changes the IP address  but to make Ip unique  we use EIP
+
+      EIP   is chargeble by AWS   when it is not allocated to the running instance and it doesnot charges only when it is in use and the instance to which attached in running state
+      
+
+    𝐄𝐥𝐚𝐬𝐭𝐢𝐜 𝐢𝐩𝐬     -   𝐀𝐥𝐥𝐨𝐜𝐚𝐭𝐞 𝐄𝐥𝐚𝐬𝐭𝐢𝐜 𝐢𝐩𝐬    -   𝐀𝐥𝐥𝐨𝐜𝐚𝐭𝐞   -  𝐒𝐞𝐥𝐞𝐜𝐭 𝐄𝐈𝐏   -   𝐀𝐬𝐬𝐨𝐜𝐢𝐚𝐭𝐞 𝐄𝐥𝐚𝐬𝐭𝐢𝐜 𝐢𝐩𝐬   -  𝐬𝐞𝐥𝐞𝐜𝐭 𝐭𝐡𝐞 𝐢𝐧𝐬𝐭𝐚𝐧𝐜𝐞
+    
