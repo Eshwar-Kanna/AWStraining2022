@@ -1,0 +1,46 @@
+
+
+We can modify the volume size  to increase at any instant but cannot be decreased  
+
+      since we can extend the storage  in only the increasing order which refers elastic property   it said to be elastic block storage
+      
+      
+      𝐛𝐥𝐨𝐜𝐤𝐝𝐞𝐯    --𝐠𝐞𝐭𝐛𝐬𝐳     <𝐝𝐫𝐢𝐯𝐞 𝐧𝐚𝐦𝐞>        :  command to know block size
+      
+      
+      
+      
+                              𝐫𝐚𝐧𝐝𝐨𝐦              𝐒𝐒𝐃        
+        𝐁𝐥𝐨𝐜𝐤     
+                              𝐬𝐞𝐪𝐮𝐞𝐧𝐭𝐢𝐚𝐥            𝐇𝐃𝐃
+                              
+                              
+                              
+   
+   when we modify the volume it will not be updated  or extended   to the folder it attached to   and  to   add  that  we use  a command 
+   
+                            𝐠𝐫𝐨𝐰𝐩𝐚𝐫𝐭     <𝐡𝐚𝐫𝐝𝐝𝐢𝐬𝐤 𝐧𝐚𝐦𝐞 >    <𝐩𝐚𝐫𝐭𝐢𝐭𝐢𝐨𝐧 𝐧𝐨 >        ext4        then the  the mount size becomes = to hard disk size
+                            
+                            ex ;    if the drive is   /dev/xvda1       then             growpart      /dev/xvda    1 
+                            
+                            
+                            𝐱𝐟𝐬-𝐠𝐫𝐨𝐰𝐟𝐬     <𝐟𝐨𝐥𝐝𝐞𝐫>          xfs       the extra part added to the mount   will be formatted   
+                            
+                            𝐝𝐟   -𝐡𝐓          for drives info 
+                            
+                            
+                            
+                            
+      Hard Disk is similar to the bottle neck    
+      
+      
+                    if 10 GB  of the data   is loaded in RAM  and the 1GB is loaded further     the 1GB  will be on wait   if  the initial 10 GB  is not loaded 
+                                  completely in   RAM
+                                  
+                                  
+                                  
+                                  use  𝐭𝐨𝐩    command   and   𝐰    option       to view the wait 
+                                  
+                                  
+                                  
+                                  
