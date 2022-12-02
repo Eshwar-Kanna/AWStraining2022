@@ -1,0 +1,99 @@
+
+                                     Amazon      -   AWS    =>   WEBUI  , CLI  , API
+         𝐂𝐥𝐨𝐮𝐝 𝐂𝐨𝐦𝐩𝐮𝐭𝐢𝐧𝐠            GOOGLE      -    GCP
+                                     Microsoft   -   AZURE
+                          
+                          
+        
+        
+        Amazon MAchine Image     is the OS image of amazon  to install    OS
+        
+        Configure OS image and Launch  OS   on  AWS Cloud
+        
+        For connectivity management   we use inbound rule and outbound rule in security group of an instance
+        
+        init  0     is the command to shutdown the Linux OS 
+        
+        𝒖𝒔𝒆𝒓𝒅𝒂𝒕𝒂 :   we use userdata to perform particular operation during boot time of the instance and the output is updated
+                      
+                          in the OS when it is Launched 
+                          
+       Once the Instance is Launched and to the operations during boot time we Edit the userdata  but to edit the OS must be stopped
+       
+       To write the script  in userdata   
+                      select instance   -     𝒂𝒄𝒕𝒊𝒐𝒏     -  𝐈𝐧𝐬𝐭𝐚𝐧𝐜𝐞 𝐒𝐞𝐭𝐭𝐢𝐧𝐠𝐬     -      𝐄𝐝𝐢𝐭 𝐮𝐬𝐞𝐫𝐝𝐚𝐭𝐚
+                      
+                      
+                      
+        𝐜𝐥𝐨𝐮𝐝-𝐢𝐧𝐢𝐭    will download the script and run during the boot time 
+        
+        𝐦𝐞𝐭𝐚𝐝𝐚𝐭𝐚 𝐮𝐫𝐥   is the unique url  to view the info of resources in the current instance 
+               
+               http://169.254.169.254/latest/meta-data/
+               
+                                    ami-id
+                                    ami-launch-index
+                                    ami-manifest-path
+                                    auth-identity-credentials/
+                                    block-device-mapping/
+                                    events/
+                                    hostname
+                                    identity-credentials/
+                                    instance-action
+                                    instance-id
+                                    instance-life-cycle
+                                    instance-type
+                                    local-hostname
+                                    local-ipv4
+                                    mac
+                                    managed-ssh-keys/
+                                    metrics/
+                                    network/
+                                    placement/
+                                    profile
+                                    public-hostname
+                                    public-ipv4
+                                    public-keys/
+                                    reservation-id
+                                    security-groups
+                                    services/
+
+                          
+ Above options specify to get the info of each particular resource                   
+                    
+                    
+  When we write script in userdata it works initially  but to update the data when edited  further  then the data will not be updated 
+                    when restarted the instance
+                    
+                    to update the data we use a syntax of code 
+                    
+                    
+                    
+
+                                Content-Type: multipart/mixed; boundary="//" MIME-Version: 1.0
+                                --// Content-Type: text/cloud-config; charset="us-ascii" MIME-Version: 1.0 Content-Transfer-Encoding: 7bit Content-Disposition: attachment; filename="cloud-config.txt"
+                                 #cloud-config cloud_final_modules:
+                                 [scripts-user, always]
+                                --// Content-Type: text/x-shellscript; charset="us-ascii" MIME-Version: 1.0 Content-Transfer-Encoding: 7bit Content-Disposition: attachment; filename="userdata.txt"
+
+                                #!/bin/bash
+                                sudo su - root 
+                                yum install  httpd  -y 
+                                systemctl enable httpd --now
+                                echo "my ip address  is  : $(curl http://169.254.169.254/latest/meta-data/public-ipv4)" >  /var/www/html/index.html
+                                --//--
+                                
+                                
+                              
+                              
+    To see the logs of a particualr instance 
+    
+                  𝐜𝐝     /𝐯𝐚𝐫/𝐥𝐨𝐠/
+                  
+                   𝐥𝐬
+                   
+                  𝐜𝐚𝐭 𝐜𝐥𝐨𝐮𝐝-𝐢𝐧𝐢𝐭-𝐨𝐮𝐭𝐩𝐮𝐭.𝐥𝐨𝐠       or any other as per requirement in the log folder
+                   
+                   
+                                
+                                
