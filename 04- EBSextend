@@ -12,9 +12,9 @@ when we modify the volume  it increases the volume without deleting the existing
       
       
       
-                              𝐫𝐚𝐧𝐝𝐨𝐦              𝐒𝐒𝐃        
+                              𝐫𝐚𝐧𝐝𝐨𝐦              𝐒𝐒𝐃        IOPS
         𝐁𝐥𝐨𝐜𝐤     
-                              𝐬𝐞𝐪𝐮𝐞𝐧𝐭𝐢𝐚𝐥            𝐇𝐃𝐃
+                              𝐬𝐞𝐪𝐮𝐞𝐧𝐭𝐢𝐚𝐥            𝐇𝐃𝐃       Throughput
                               
                               
                               
