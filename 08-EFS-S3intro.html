@@ -1,0 +1,43 @@
+
+
+
+              𝐂𝐫𝐞𝐚𝐭𝐢𝐧𝐠 𝐚𝐧 𝐄𝐅𝐒  𝐅𝐢𝐥𝐞 𝐒𝐲𝐬𝐭𝐞𝐦
+
+
+
+EFS  is the service  where we can create the file system 
+
+if the hard disk (EBS) in  1a  And instance in 1b   then   both cannot be connected 
+
+EFS   provides Replication which improves Durability and Availability
+
+
+Create an EFS   by applying the required features while creating 
+
+Launch an instance using this EFS hard disk 
+
+By default the security groups are added to the instance when the EFS is attached to th instance 
+
+we can mount the EFS to the mUltiple instances with specific permissions 
+
+EFS  cannot be attached to Windows since NFS is not used in Windows 
+
+
+𝐒𝟑  -   𝐁𝐮𝐜𝐤𝐞𝐭  (  folder )  -  𝐎𝐛𝐣𝐞𝐜𝐭  ( file )
+
+upload a file in  the bucket  
+
+bydefault it can only accessed privately  but to provide access to public we create a Presigned URL   for a specific duration of time 
+
+EFS   has the capability of using it as  SCM   𝐜𝐞𝐧𝐭𝐫𝐚𝐥𝐢𝐳𝐞𝐝 𝐬𝐭𝐨𝐫𝐚𝐠𝐞  which cannot be provided by  EBS   and S3  
+
+    EBS  cannot be connected to instances in other region  thus cannot  be used as centralized storage
+    S3   can be connected to instances globally but it is not a file system  where the servers connects to files for the data
+
+We can also  give 𝐑𝐞𝐚𝐝 𝐨𝐧𝐥𝐲 𝐚𝐜𝐜𝐞𝐬𝐬  to the EFS   so that the users attached to this EFS  can only read the data but cannot write 
+
+The access we modify for EFS  only works when the drive is mounted after the access created but the access will not works for the instances which are connected 
+    with EFS before creating the ACCESS
+
+to apply the access  we should unmount the drive and reattach   .  we can attach the volume directly using the command from the ATTACH   instead detaching and attaching 
+
