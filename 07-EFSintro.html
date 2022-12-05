@@ -1,0 +1,56 @@
+
+
+        Connecting to a drive refers that Connecting to a  partition and connecting to a file system 
+
+
+
+  𝐈𝐍𝐎𝐃𝐄 𝐑𝐮𝐥𝐞     :    It is the table where it store the address of the hard disk and when we need the data it connects to  Inode table and it provides 
+                       the address of data  to retrive required data from that address
+
+  
+                        𝐄𝐁𝐒    :  ISCSI / FC (fulfillment center)   -   Raw hard disk   -   SAN ( storage Area Network ) -  Manual partition & Format 
+   
+                                     -   Fixed Data Storage   - charges for the entire hard disk provided   
+                                                       
+    𝐒𝐭𝐨𝐫𝐚𝐠𝐞             𝐄𝐅𝐒    :    NFS  ( Network File System )    -   file data    -     Pre formatted Hard disk   -   NAS  ( network attached storage)
+                        
+                                        -    similarly infinite storage   - charges only for the used storage   -  known as  File servers 
+
+
+                        𝐒𝟑 (simple storage service )    -  Object / cloud storage   - HTTP   -  Manage all file systems in cloud 
+
+
+
+
+We can only able to perform the CRUD operations when the storage supports or has http protocal  in which S3  has this support and used for such operations 
+
+
+when we open any application . internally it goes to the file system   and connects Inode table to get the address of the data
+
+ 
+𝐅𝐢𝐥𝐞 𝐄𝐧𝐜𝐫𝐲𝐩𝐭𝐢𝐨𝐧   :  Locking a file or Hashing the data from Public access 
+
+𝐊𝐌𝐒   :  Key Management  Service  :   is the service that used for encryption and decryption 
+
+          Encryption of data can be done  when the data is at rest  or data is in Transit  
+
+
+AWS  gives us the feature of 𝐁𝐥𝐨𝐜𝐤 𝐄𝐧𝐜𝐫𝐲𝐩𝐭𝐢𝐨𝐧   where the data is stored as block wise in the hard disk 
+
+
+To get Encryption of data .  we enable the option of encryption while creating the volume   or  while creating snapshot for existing non encrypted volumes 
+
+EBS   has an advantage of 𝐌𝐮𝐥𝐭𝐢 𝐀𝐭𝐭𝐚𝐜𝐡   where the same volume can be attached to multiple instances but only  for the instances in same region 
+
+
+EBS  is a 𝐙𝐨𝐧𝐞 𝐁𝐚𝐬𝐞𝐝 𝐒𝐞𝐫𝐯𝐢𝐜𝐞   in which it is connected to the instanes running  in the same region
+
+EBS never Provide Replication  Bydefault     :  Third party apps should  be used for the replication
+
+
+
+
+
+
+
+
