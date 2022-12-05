@@ -1,0 +1,65 @@
+
+
+𝐕𝐞𝐫𝐬𝐢𝐨𝐧𝐢𝐧𝐠   :   The process of Overcoming the overwriting of a file when it is reuploaded for multiple times and tracking the data each time it is uploaded
+
+Create a bucket  in S3  with the option of Versioning Enabled  and upload a file in it 
+
+    open the file uploaded in it  and change some data in the file and reupload the same file in to the bucket  we can see the file twice and with updated data in the second
+
+Enable the option of show version to see all the versions of file in the bucket    we can open file the file from any of the version so that we get data at that instant
+
+Any file that is uploaded in bucket can be restored by initiating a restore so that it copy temporarily and restores when it is destroyed 
+
+𝐀𝐫𝐜𝐡𝐢𝐞𝐯𝐞 is used to backup and 𝐆𝐥𝐚𝐜𝐢𝐞𝐫 is the service provide backup 
+
+we can also change the storage type or storage class  while uploading a file in the bucket
+
+Changing the storage class from one Storage class to another is called 𝐭𝐫𝐚𝐧𝐬𝐢𝐭𝐢𝐨𝐧
+
+𝐒𝟑 𝐋𝐢𝐟𝐞𝐜𝐲𝐜𝐥𝐞  :  it is the service used to Automate the retrieval and transition of required storage class  
+
+                                                          
+                                                        𝐓𝐲𝐩𝐞𝐬 𝐨𝐟 𝐬𝐭𝐨𝐫𝐚𝐠𝐞 𝐜𝐥𝐚𝐬𝐬
+
+
+𝟏. 𝐒𝐢𝐦𝐩𝐥𝐞 𝐒𝐭𝐨𝐫𝐚𝐠𝐞 𝐒𝐞𝐫𝐯𝐢𝐜𝐞 (𝐒𝟑)   : Amazon S3 is an object storage service that stores data of any type and size. 
+              It can store data for any business such as web applications, mobile applications, backup, archive, analytics.
+              It also provides easy access control management for all your specific requirements and is almost 100% durable and by almost I mean 99.(11 nines)%. 
+              It can also be used to store all kinds of file formats as you would with a dropbox.
+              S3 also allows a simple web-based file explorer to upload files, create folders or delete them.
+
+𝟐. 𝐄𝐥𝐚𝐬𝐭𝐢𝐜 𝐁𝐥𝐨𝐜𝐤 𝐒𝐭𝐨𝐫𝐚𝐠𝐞 (𝐄𝐁𝐒)    :  EBS provides block storage which is similar to hard drives to store any kind of data persistently. 
+                This can be attached to any EC2 instance and used as block storage, which even allows you to install any operating system.
+                EBS volumes are placed in availability zones so that they are replicated to prevent loss of data due to single component failures. 
+                They provide absolute low-latency performance and you can also scale up or down your resources as and when required. 
+                EBS is available in both SSD and HDD formats depending on your requirement of speed and volume.
+  
+
+𝟑. 𝐄𝐥𝐚𝐬𝐭𝐢𝐜 𝐅𝐢𝐥𝐞 𝐒𝐲𝐬𝐭𝐞𝐦 (𝐄𝐅𝐒)       :  EFS is a managed network file system that is easy to set up right from the amazon console or CLI.
+              When you have multiple EC2 instances needed to access the same file system EFS helps in providing just that. 
+              Unlike EBS, EFS is built using the NFS4.x protocol on SSDs and have a much faster throughput. 
+              This also means that EFS is much more expensive than EBS as it can be used on very large analytical workloads. 
+              EFS scales up or down based on the size of the files you store and is also accessible from multiple availability zones.
+              The distributed nature of the file system can tempt you to use it as a CDN. But the costs of a CDN outweigh the benefits of using EFS.
+              Hence it is better to use a CDN and use EFS in conjunction with files that can’t be stored on a CDN.
+
+𝟒. 𝐀𝐦𝐚𝐳𝐨𝐧 𝐅𝐒𝐱 𝐟𝐨𝐫 𝐋𝐮𝐬𝐭𝐫𝐞         :  Luster is a file system used for compute-intensive workloads.
+              This mainly comes into the picture when you run machine learning operations on large data sets or when you need to run media encoding workloads.
+              Running Lustre separately requires a lot of expertise in setting it up and configuring it for the right workloads.
+              With the help of Amazon FSx, this can be avoided and a simple interface on the console helps you to quickly get started and start working on your data.
+              The ability to connect it seamlessly to S3 and the option of running it in VPC provides a low cost yet a performant way to achieve your compute-intensive workloads leveraging luster without the administrative overhead of running it.
+
+
+𝟓. 𝐀𝐦𝐚𝐳𝐨𝐧 𝐒𝟑 𝐆𝐥𝐚𝐜𝐢𝐞𝐫             :    The glacier is used mainly for archival and long-term data storage.
+            This means that there is a low retrieval rate on this storage system due to which it is offered at an extremely cheap rate.
+            It does also come with compliant security features to encrypt your data.
+            Glacier allows you to run queries and analytics on it directly and you will be charged only for the few minutes or hours when you read the data. 
+            In terms of durability, it offers 99.(11 nines)% durability which is one of the highest in the industry. 
+            Glacier hopes to replace the legacy on-premise tape-based backup service with a much more cost-effective and durable solution.
+
+
+
+
+
+  the data uploaded in S3 Bucket will be stored in all the Three Az's  of region   bydefault    can modify while uploading the file in bucket  
+
