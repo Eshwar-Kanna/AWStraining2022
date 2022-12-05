@@ -1,0 +1,29 @@
+
+
+
+    𝐄𝐁𝐒 𝐎𝐩𝐭𝐢𝐦𝐢𝐳𝐚𝐭𝐢𝐨𝐧     :     To verify the supported resources for each instance we use optimization
+
+
+The max no of IOPS   are  2,60,000
+
+
+𝐀𝐖𝐒 𝐁𝐚𝐜𝐤𝐮𝐩     is one way of can be done only for the dedicated instances and for all other insatnces we use  𝐒𝐧𝐚𝐩𝐬𝐡𝐨𝐭  which is another way of backup of 
+                      instances 
+
+𝐒𝐧𝐚𝐩𝐬𝐡𝐨𝐭   :   Backup    / Clone Data    -  point in time backup
+
+If the data gets backup everyday the storage becomes double each day which is very expensive and the computation or process becomes slow  to overcome 
+such issue we use Snapshot 
+
+select a hard disk and create  snapshot  and create a volume from this snapshot and this volume can be attached to another  instance or other Hard disk
+By the above way we can attach similar volume to multiple instances
+
+Back up of data only that is changed or added to the previous version  instead  the  complete data repeatedly  is known as 𝐈𝐧𝐜𝐫𝐞𝐦𝐞𝐧𝐭 𝐁𝐚𝐜𝐤𝐮𝐩 and added
+data called   𝐅𝐥𝐚𝐠
+
+
+Here if we create a volume from the second snapshot which is created after adding some data in the first snapshot  we can see the complete data which
+is in the first and the data added in second  instead only showing the data which added since we have created volume from second snapshot  only because 
+The complete data will be stored in S3 and this provide the data of first snapshot to the second snapshot  when the volume is created from the second snapshot
+
+
