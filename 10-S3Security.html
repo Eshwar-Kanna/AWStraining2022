@@ -1,0 +1,27 @@
+S3  has the inbuilt security for the Access Management
+
+
+
+                                    𝐎𝐥𝐝𝐞𝐫    -  𝐀𝐂𝐋   -  𝐨𝐛𝐣𝐞𝐜𝐭 𝐥𝐞𝐯𝐞𝐥 𝐩𝐨𝐥𝐢𝐜𝐲
+      𝐀𝐜𝐜𝐞𝐬𝐬 𝐌𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭     
+                                    𝐍𝐞𝐰𝐞𝐫   -  𝐁𝐮𝐜𝐤𝐞𝐭 𝐩𝐨𝐥𝐢𝐜𝐢𝐞𝐬 -   𝐆𝐫𝐚𝐧𝐮𝐥𝐚𝐫 𝐋𝐞𝐯𝐞𝐥    -  𝐃𝐞𝐟𝐚𝐮𝐥𝐭 𝐃𝐄𝐍𝐘
+
+
+Create a bucket using newer method .  here the option of Editing the permissions is disabled  where in older is enabled default
+
+Every  ucket we create will not be allowed to public to make it public change bucket settings  in permissions  and edit the public access
+
+In the newer policy the permissions are not managed for each Object  individually   it is managed at bucket Level
+
+To create bucket policy we use Policy as code in JSON   we can use policy generator to get help in code format  then copy the code from above and paste in policy
+
+
+
+𝐇𝐨𝐬𝐭𝐢𝐧𝐠 𝐚 𝐖𝐞𝐛𝐬𝐢𝐭𝐞   -  we can create a static website  and provide a default file when the url created is accessed  and also a file to send response when an error occured
+
+𝐂𝐫𝐞𝐚𝐭𝐢𝐧𝐠 𝐚 𝐑𝐞𝐩𝐥𝐢𝐜𝐚   -  Both buckets versions  should  be enabled  and clone it if incase the job  failed 
+
+Using Newer method of policy even if we Disable Blocking we cannot Access to the data since by default it DENY the access of data for public
+ 
+
+𝐀𝐑𝐍   is the unique resource Name it contains Particular syntax to define the resources of AWS for which the policy is creating for 
