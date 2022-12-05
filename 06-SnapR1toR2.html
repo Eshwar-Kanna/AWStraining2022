@@ -1,0 +1,36 @@
+
+
+                                      𝐀𝐭𝐭𝐚𝐜𝐡𝐢𝐧𝐠  𝐬𝐚𝐦𝐞 𝐡𝐚𝐫𝐝 𝐝𝐢𝐬𝐤 𝐨𝐫 𝐯𝐨𝐥𝐮𝐦𝐞 𝐭𝐨 𝐭𝐡𝐞 𝐢𝐧𝐬𝐭𝐚𝐧𝐜𝐞𝐬 𝐢𝐧 𝐝𝐢𝐟𝐟𝐞𝐫𝐞𝐧𝐭 𝐫𝐞𝐠𝐢𝐨𝐧𝐬 
+
+
+
+
+
+Launch an instance in Mumbai region    
+
+create a EBS   volume   ,   attach it to the instance in mumbai region  ,  make partitions and mount it to any of the folder and add some data  
+
+create a snapshot  for the volume  and copy this snapshot to the virginia region   
+
+Launch an instance in virginia region and create a volume with the snapshot copied to this volume and atach this volume to the instance created in the virginia region and 
+and mount the partition to any of the folder then we can see the data that is added to the partition from the instance in mumbai region
+
+when we delete a snapshot then their might be loss of data  added in it so to restore even if it is deleted  we need to store it temporarily where we use 𝐫𝐞𝐜𝐲𝐜𝐥𝐞 𝐛𝐢𝐧 
+
+to get the service of recycle bin we  use 𝐫𝐞𝐭𝐞𝐧𝐭𝐢𝐨𝐧 𝐫𝐮𝐥𝐞 
+
+
+when the snapshot having retention rule will be stored in recycle bin and can be recovered when needed 
+
+we can create the retention table by specifying the snapshot as tag so that the rule can be applied for only 
+
+
+we create an Archieve to the snapshot to change the type of storage or storage tier as per requirement to minimize the charges 
+
+
+Launch an instance and install the packages required and modify the settings and security features   and create an image with the instance    
+        so that when their is a requirement of multiple instances with same specifications we can launch the instances with this image to get all features 
+
+        we can share this image from the permissions so that other users can create the instance using this image 
+
+
