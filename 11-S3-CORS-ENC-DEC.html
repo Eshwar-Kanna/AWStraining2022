@@ -1,0 +1,56 @@
+
+
+
+Launch an instance        𝐰𝐞𝐛𝐬𝐢𝐭𝐞 𝐀    
+
+Create a bucket         𝐰𝐞𝐛𝐬𝐢𝐭𝐞 𝐁       - Upload   files  1.index.html    2 error.html    -    create a policy  allowing for   only get Object
+
+
+using javascript   we fetch data  of extra.html  in  index.html    so that we can see the data of extra.html in index.html    
+          here  index.html  is called  Origin   and to fetch    teh data from one webpage to another  CORS   should be enabled in the website from the data is fetching
+        in AWS  enable the 𝐂𝐎𝐑𝐒 of the file in bucket form its permission
+
+
+
+                                          𝐄𝐍𝐂𝐑𝐘𝐏𝐓𝐈𝐎𝐍 𝐀𝐍𝐃 𝐃𝐄𝐂𝐑𝐘𝐏𝐓𝐈𝐎𝐍  
+
+
+Encryption  is of two types    
+
+1. 𝐒𝐒𝐄 (server side encryption )    -    SSE S3    ,  SSE KMS 
+
+2.  𝐂𝐒𝐄  (  client side encryption )     -   CSE
+
+
+Upload a file  by enabling  the Encryption of  SSE S3    and even without having the encryption key we can delete the file  
+
+
+We can Encrypt  the Bucket  so that Every  file  uploaded in It  will be Encrypted
+
+
+we can create an ENVIRONMENT   using  Bucket  Policies that the  Bucket can only allow the files if they are encrypted  using the mentioned specific type of ALGO  
+
+
+
+    𝐀𝐔𝐃𝐈𝐓 𝐋𝐎𝐆    :   the Resource used to check all the activity  of the bucket . enable the logging and provide a bucket to store the records then we get 
+
+              all the logs of the bucket in the mentioned bucket as the path of logs  . it may taked time to reflect logs in the bucket
+
+For   Getting or Doownloading the data  AWS   charges .  but to make not to charge for GET we should enable 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 𝐏𝐚𝐲𝐬 
+ 
+
+        𝐎𝐛𝐣𝐞𝐜𝐭 𝐋𝐨𝐜𝐤   
+
+        we use this resource to fix some period of time to a bucket or file so that no one can delete it till the period of time ends and it can only be done 
+              only through   CLI  not GUI
+
+    𝐀𝐦𝐚𝐳𝐨𝐧 𝐒𝟑 𝐆𝐥𝐚𝐜𝐢𝐞𝐫   :   Volut  Lock  -  to lock the file for  aperiod of time 
+
+          AES256   Is an  algo used for the Encryption  and decryption 
+
+
+SSE S3  Encryption    is completely    managed by the Client   who    specify   while  Uploading   and it gives  to http  header  which is hidden 
+
+
+
+          
