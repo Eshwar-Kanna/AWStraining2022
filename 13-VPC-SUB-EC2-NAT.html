@@ -1,0 +1,34 @@
+
+
+
+                                            𝐒𝐍𝐀𝐓 (  sourse Network Address Translation)  :  Private =>  public  : source Ip of instance  which is private is replaced by public Ip of router 
+                𝐍𝐀𝐓
+                                            𝐃𝐍𝐀𝐓 ( Destination Network Address Translation )  :  public =>  private  :   destination Ip of router which is public is replaced by private ip of instance
+
+
+      for the internal connectivity of devices   we use switch  but to connect to outer world we use Routers 
+
+𝐃𝐢𝐬𝐚𝐬𝐭𝐞𝐫  𝐑𝐞𝐜𝐨𝐯𝐞𝐫𝐲   is  the backup of VPC in other region 
+
+the Ip address of router and the instance from which we are connecting to internet should be in same range 
+
+create  a VPC   
+
+create  4 subnets   2  as public  and each in each different region     and  2  as private  each in each different region 
+
+Launch an instance in public subnet and enable public assign 
+
+𝐃𝐇𝐂𝐏  is the server that provide ip address
+
+to connect to public subnet from outer world we use Iternet gateway and attach it to the VPC   and create a routing table and associate the public subnets
+  to the router  only then we can able to connect to this public Ip's from out of VPC
+
+Launch an instance in the private subnet    we can able connect to this instance using its private Ip  inside an instance running in the public subnet of same vpc 
+          the public subnet in which we can connect to the private subnet is known as Bastion Host  or Jump server
+
+
+and we cannot connect to the private subnet from out of VPC  
+
+
+
+
