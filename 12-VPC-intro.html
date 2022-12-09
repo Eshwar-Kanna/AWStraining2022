@@ -1,0 +1,48 @@
+
+
+
+                𝐕𝐢𝐫𝐭𝐮𝐚𝐥 𝐏𝐫𝐢𝐯𝐚𝐭𝐞 𝐂𝐥𝐨𝐮𝐝 ( VPC)  -   𝐍𝐀𝐀𝐒   (   Network As A Service  )
+
+
+
+        ENI ( Elastic Network Interface )  ,   ENA  ( Elastic  Network Adopter  )   ,   EFA  (  Elastic  Fiber Adopter )
+
+
+
+    𝐈𝐏𝐕𝟒    :     4  Octate  :  2^32  Ips  can be created in this version   :    _._._._   :  in each octate we can have  0-255  :  0.0.0.0/0  represents all IPV4 ips in the world
+
+
+    𝐈𝐏𝐕𝟔   :   8  octate   : 2^128   Ips  can be created in this version   :     _._._._._._._._    :  in each  we can have  0000-ffff    :  ::/0  represent all IPV6  ips  in the world
+
+
+
+        𝐂𝐫𝐞𝐚𝐭𝐢𝐧𝐠  𝐕𝐏𝐂  
+
+
+    1. Physical connectivity  ( wire / wireless )      
+    2. NIC card 
+    3. IPV4 / IPV6   
+    4. Switch  /  Router  
+    5. Private Ip ( free but cannot be connected to outer world ) /  Public  Ip   (  connected  to outer world but can be charged  )
+    6. Routing Table  
+
+
+Internet gateway is the  service helps in connecting to outer world  
+
+    𝐂𝐈𝐃𝐑  :  The network range we provide for subnets 
+
+    Create  a  VPC   in a range  of CIDR   -  192.168.0.0/16   
+    Create  a Subnet  in a range of VPC     - 192.168.1.0/24     in  1a region 
+    Create  a Subnet  in a range of VPC     - 192.168.2.0/24     in  1b region 
+
+
+if its 8 then the netmask becomes   255.255.255.0
+if its 16 then the netmask becomes   255.255.0.0   
+if its 24 then the netmask becomes   255.0.0.0   
+
+
+      when we launch an instance in the subnet created .it get the Ip address in the range of subnet  
+
+
+in    0 - 255   we can only use  251  in which   0 - N/w  Id   ,  1  - Router  ,  2 - DHCP  ,    3  -    ,  255   -   .   
+   
