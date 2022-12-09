@@ -30,5 +30,28 @@ Launch an instance in the private subnet    we can able connect to this instance
 and we cannot connect to the private subnet from out of VPC  
 
 
+  But  if  the instance having private Ip should be connected to Internet and internet should not be connected toi the instance having private Ip  we use  𝐍𝐀𝐓
+
+Launch an instance in private subnet  and to make this pingable to public instance  we use a NAT Gateway  
+
+                        
+                          𝐍𝐀𝐓 𝐈𝐧𝐬𝐭𝐚𝐧𝐜𝐞𝐬           -   manual 
+          𝐒𝐍𝐀𝐓
+                          𝐍𝐀𝐓 𝐆𝐚𝐭𝐞𝐰𝐚𝐲            -   Automatic 
+
+        NAT gateway should be always in a public subnet  to make any private instances access to internet
+
+        Every  private instance have  a router which helps in connecting to the public subnets  .  but  through  editing route  bound rules 
+
+        Instead  editing we create a Route  table and attach   it to the required  Subnet
+
+if we launch any instance in our custom  VPC in a private subnet   we dont   get  public dns name bydefault   but which is automated in default VPC  
+
+        to have such enabling in our custom VPC  .  in VPC - actions   -  edit dns hostname   and  Enable  it 
+
+         and we can provide the same settings  in subnet so that any instance launched in that subnet will be auto assigned with a public IP 
+
+
+
 
 
