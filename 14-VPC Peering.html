@@ -1,0 +1,42 @@
+
+
+                𝐕𝐏𝐂   -   Virtual private cloud   -   An isolated  Area in which we can use all our required  resources and 
+                                                       the user in the cloud is called  Tenant -   VPC provide  Multi tenancy  - single service to multiple users
+
+
+𝐕𝐏𝐂 𝐏𝐞𝐞𝐫𝐢𝐧𝐠  :  It is a network connection   between two  VPC's  either  they are in  the same network   or we can   create   a vpc peering with  a vpc  
+                 in  another  AWS account  or can be in different  regions 
+
+
+                                𝐕𝐏𝐂 𝐀 (10.0.0.0/16)   ------------vpc peering----------------   𝐕𝐏𝐂 𝐁 (172.3.1.0/16)
+
+
+The physical Hardware of the instances in AWS are distributed into tenancy's
+
+VPC    have the feature of multi-system tenancy
+
+for vpc  peering the IP   of two VPC's should in different regions  or different range
+
+
+Launching a VPC Wazard ( N.virginia)  with the following selection of options  
+
+                      vpc and more  -  2,2,0    , None  , None  , and we customize the CIDR  blocks  
+
+Launch an Ec2 instance using he VPC created  with enabling public ip  and select All traffic in tabs  
+
+
+
+Go to mumbai region  
+          peering connectrions   >  connect to peer connection 
+
+          select the pvc(of mumbai region )  in local peer option   , My account , Another region  ,  select   N.Virginia  , select VPC Id of virginia  and create
+
+by the above process  the a peer request from mumbai region will be initiated 
+
+
+Go to virginia region  and in peering  connection   it shows their is a request for peering go to it and in action  select accept the request
+
+
+But even after completing the peering connection both cannot ping to each other to ping each other    we have to update the routing table of the subnets 
+        of both sides which are to be connected each other   then both subnets will connect to each other  in each subnet add to 
+        route rule of peering connection
