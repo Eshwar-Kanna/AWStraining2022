@@ -1,0 +1,16 @@
+
+              Downloading multiple objects or a Bucket using CLI to local system 
+
+
+aws configure 
+	>  access key
+	>  secret key
+	
+aws s3 cp  s3://<PATH> ( ex: quest-data-dump/OfficeAly_999_02242023/) <local path> (ex: C:\Users\eshwar.l\Downloads\AWSS3 )  --recursive
+
+convert file to zip
+
+share where it needed 
+
+
+
