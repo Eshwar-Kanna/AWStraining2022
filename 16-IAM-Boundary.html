@@ -1,0 +1,43 @@
+
+
+
+                      IAM  -  Identity  Access  Management 
+
+
+                      human     -  console / webUI    -  user   and  password 
+    AWS   
+                      App / Program    - webapp  /  CLI  ( SDK )   -  Access key 
+
+
+IAM user 
+
+    Identity  ->   Account  Verification              Access  ->  power or policy of  ID 
+
+permission  we give to the user  called policy  
+
+->  we create  sub users to manage same particular  service 
+->  pre created policies given by the AWS to a user called AWS managed policies 
+
+
+                    AWS managed 
+policy type         customer  managed 
+                    Inline 
+
+
+Instead  of giving  Administration  power  to the user  we can give  power user  that have all similar except IAM service 
+
+Billing  Dashboard   can only  accessed  to root  Account 
+
+Creating  custom policy
+
+      in  policies  ->  AWS  power   ->  we  can see  the code in JSON   
+
+the policy  can be given to  specific  resources  like  Bucket  and  other
+
+After  giving  the  custom policy we  can attach  this  policy  to  the multiple  users 
+
+->  we  can also  create  policy  for  particular  object  like  instance  , bucket 
+->  bucket  policy  can be attached only to  s3 
+->  inline  policy   is  same as creating Custom policy   but  attached to only one user
+->  instead  of  giving similar policy to multiple user  we  can  create  a group  and attach  ploicy  to that group
+->  we use account  setting  to setup  password policy
