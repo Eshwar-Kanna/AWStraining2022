@@ -1,0 +1,93 @@
+
+
+                                  Security  in VPC 
+
+
+                            
+                                        SG        -   stateful
+Filter / Block Network  
+                                        NACL      -    stateless 
+
+
+The packet sent from the source is always accepted by the server running in the Destination System 
+
+        netstat -n   ---->  info  of  all  packets  sent to servers 
+
+The  firewall allows  the IP's  of particular range  and connect to the server depending on  some rules called inbound / ingress rule 
+
+In some cases the server create the packet send back  to the client  here the firewall  check  some rules to send the packet  such rules called outbound rules 
+
+      in  VPC Dashboard  ->  Security  ->  Security  Groups  
+
+      while creating  it  asks for inbound &  outbound  rules  
+
+Security Groups  are always ahead to  instances 
+
+emphemeral  port range    1024 - 65535
+
+-> SG  is attached  Just before the ec2  instance 
+-> NACL  is attached outside  the subnet  inside  a VPC
+
+-> Any System of Private Ip  having Access  to connect to internet are called DMZ
+
+-> Whenever we create a subnet  it is Auto Attached to a NACL  but Bydefault it has rule of Allowing all in both
+
+-> Launch  an instance such that for IP's of range ( 0.0.0.0/0 ) The port 80 , 22 in Ec2  allowed  &  21 Denied 
+
+Create  a Security Group
+
+      allow-web-ssh  ,  desc  for  ec2   ,  select VPC  ( not default )
+
+->  Security Groups  works for  VPC  not for  multiple VPC's 
+
+In inbound rule  - >  It should  Deny  all    ( Delete all rules ) 
+In outbound rule ->  keep  default rules 
+
+Launch an instance attaching default  VPC
+
+      select existing security group  and choose created above
+      enable public Ip , select SG   and launch 
+
+ check the connectivity of instance with ssh , http  ( curl ) 
+ Go to inbound rule  and Add rules of 
+
+    All ICMP       ICMP        All          0.0.0.0/0
+    SSH            TCP          22          Everywhere
+
+here the instance  connect  to ssh   and ping  to internet since the outbound rule is default
+
+->  Two instances connect to each other only when both sends packet  to each other 
+
+->  here when we delete the outbound rule  that  means from Destination  , no packets should send to src  in which  it should loose  the connectivity 
+
+But  when we delete the outbound rule still the instance ping to the destination system . because of stateful  condition 
+
+-> Here the firewall create an empheral rule to send the reply packet  to the source system   and the process works   Vice Versa 
+
+If  we  do  the same process  in NACL  we loose connectivity  since  it is stateless
+
+In SG  ->  we can  create a rule only  for  Allow
+In NACL -> we can create rule for both  Allow  and Deny
+
+create  NACL  
+    attach  a private  instance in subnet Association  
+
+delet rules in inbound  &  outbound  check curl ( not works ) 
+
+      create a rule that 
+
+inbound  -  HTTP     -   80
+outbound  -  TCP    32769 - 60999                ( curl  works  )
+
+using  NACL   we can Deny  one particular  IP  since  we have rule of Deny  which  cannot  in  SG
+NACL  check the rules  based on priority  if the rule  in top  has  allow  acces  to  all it will  not  check the next rule 
+
+To give priority  the  rule number  should be minimum 
+
+*  Reachability   Analyzer  in security  group 
+
+      A tool  to  analyze  the configuration   made  
+
+create  a path  in  it 
+
+
