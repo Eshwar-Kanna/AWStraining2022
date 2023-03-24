@@ -1,0 +1,45 @@
+
+
+                    AWS  ->  webUI  ,  CLI   ,   API
+
+Launching  AWS   in command  prompt  using  ALI  
+
+Download  AWS command line  Interface 
+
+      aws  --version   ,  aws  help
+      aws  configure 
+        > provide  access  key 
+        > provide  secret key 
+    
+        cd /.aws
+        aws  ec2  help
+        aws  ec2 describe-instances 
+
+
+
+In Graphical  collect  all  the  requirements of  a particular  service  in  AWS   and  implement  all  in command  to  create such  service using  command  script
+
+      aws   ec2  run-instances   --image-id  <ID>    --instance-type  t2.micro  --count  1  --subnet-id  < id >  --security-group-ids  <id>  --key-name <key>
+        
+       aws   ec2  stop-instances-ids   <ID>
+        
+  when  a user  wants to connect to  s3  it  ask for Authentication  but  the user  of  ec2  wants   to connect  to  s3  it allows without 
+        authentication if the  user  has  a role 
+   
+ To connect  that  role to the instance .  in  actions modify  IAM role and  attach  the  role 
+        
+ ->  IAM  - Role  - create role  - aws service  - Ec2  - Policy  -  s3  -  Role name   - Create 
+        
+        Attach it  to  any instance then  from this instance we  can access  s3 
+        
+->  s3  allow user  with  role  without Authentication  because  of token  service  provided bu  STS  and  such process  is  called Assume Role        
+      
+->  Ec2  goes  to  STS  ->  authenticate  Role  ->   STS  ask for the temp access key  &  private key  to  IAM  and provide it to Ec2  -> Ec2 use this acces s3
+        
+        curl  https://169.254.169.254/latest/meta-data/
+        
+        this gives  all required info  in  local OS 
+        
+        
+    
+        
