@@ -1,0 +1,30 @@
+
+
+
+                    We can connect to S3  from ec2  Private Subnet   using  a Private  Link  without  Connecting  to   NAT  and  Internet Gateway
+
+      =>  The  AWS   Charge very  high  to  the  NAT  Gateway  in  comparison  to  the  Private  Link  
+
+      =>  To  have  such  Connectivity  Through Private Link  we need to  Configure  VPC  Endpoint  
+
+                  ssh  -i   my.key   ec2-user@<IP of instance in private subnet >      
+                    
+       To  Troubleshoot  such  issue  we  run  Reachability  Analyser  and  also  we  can  create  a  Flow logs  
+                    
+                    create   a Flow  Log 
+                    Provide  bucket  to store logs  then   
+                    Every  commands  log  is stored  in Mentioned  Bucket 
+                    
+         =>  After  Troubleshooting   all  issues  the  SSH works  .
+                    aws  s3 ls  ---->  works  because  of  NAT  Gateway
+                    
+         Whenever  the private  subnet  is  detached  NAT  Gateway  the  connection  between  EC2  and  The S3  is  lost   
+                    
+         we  can get  it  by  Creating  a  VPC  Endpoint 
+                    
+         VPC  ---->   Endpoint  ------>  Create  End point   (  select the Route table to which private subnet is attached )  --> vpcec2tos3endpoint 
+                    
+                    
+        Before  creating   the  endpoint  the  subnet  is  attached  to  a  particular  Route  Gateway but  
+                    as  soon  as the  endpoint  is  created  it  update  to s3 Route  Gateway
+                    
