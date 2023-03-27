@@ -1,0 +1,88 @@
+
+
+
+
+                        Load  Balancer    :   CLB  ,  ALB  ,  NLB  ,  GLB 
+
+        
+   A load balancer in AWS is a service that distributes incoming application traffic across multiple registered targets,
+            such as EC2 instances, Lambda functions, and containers, in different availability zone
+
+
+CLB  :  The Classic Load Balancer is a connection-based balancer where requests are forwarded by the load balancer without “looking into” any of these requests. 
+            They just get forwarded to the backend section.
+
+ALB  :  The Application Load  Balancer  route the client request to the target based on the path of URL  the client request from . 
+
+NLB  :  It is used when maximum no.of  request hits at instant 
+
+GLB  :  It acts  and  IPS  /  IDS  that secure the server from Malicious  data from the  network  traffic 
+
+=>  the  servers that are running behind which  are  directly  not  accessed to  the  clients  are  called  Backend  Servers 
+=>  the servers that  are directly connected  to the  clients  are called Frontend servers
+
+Here the Load Balancer  is  a frontend  server  &  instances are  Backend 
+
+Increasing  Instances  ---------   scale out  
+decreasing Instances  -----------  scale in 
+
+
+=>  LB  has  the  capability of  health  Check 
+=>  LB  has inbuilt  Feature of  Reverse Proxy
+=>  LB is  also  said  to  be Register
+
+
+
+=>  AWS  has  Elastic  Load Balancer 
+
+Go  to  VPC   --->  Lauch  a private  and publc  subnets in each AZ   of  1a  and 1b  
+Launch  a private instance  in  private  subnet   1a 
+Launch  another private  instance  in  private subnet  1b 
+
+allow  all traffic in security  group  for  both 
+
+Provide  different  data  in  index.html  for  both  instances  
+
+    for  instance   in  1a 
+                                        sudo  sh  -c  " echo  ' iam  from a  '  >  index.html "
+    for instance  in  1b 
+                                        sudo  sh  -c  " echo  ' iam  from b  '  >  index.html "
+
+
+we   use above  format  where  sudo  &  >  to be used in a single command 
+
+Go  to  Load Balancer  and  create  CLB  
+
+           Name  ;  select  VPC  ; ( HTTP  ;  Lbport 8080  ;   instance port  80 ) ; select public subnets of both 1a and 1b ; create new sg ; 
+                  configure health check  ( HTTP , 80 , /index.html ) ( 5,10,2,4,)  ;  add both private instances ;   create  
+
+
+
+=>  we  have to create  a Load Balancer  in only  public  subnet  not i private  and  add only private instances 
+
+=>  Using  the Load  Balancer Ip  and port 8080  (frontend )  we  can  connect to  the Instance  (Backend)   or  the  DNS  name 
+
+=>  as  we refresh the page  we notice the connection  to  both  instances  each time 
+
+=>  Edit  inbound  rule of  instances  and  provide  the  Security  Group  of  Load  Balancer  to  allow only  Load Balaner  to connect to targets 
+
+=>  we  give  security  group  as the source instead  Ip of instances  since  the Ip  of instance changes when its restarted 
+
+
+
+        Interval  time  :  ping  to check  health after every mentioned time 
+
+        Unhealthy Threshold  : Confirms  by  pinging for  no.of  times  we  mention 
+
+        Healthy  threshold  :  Confirms  its  healthy by  pinging  no  of  times  we  mention 
+
+   copy  the  DNS  of  Load  Balancer  and use its  port  8080  we can  access to  the  Instances  randomly  
+
+=>  we  can  write  inbound  rule with  Security  Group  
+
+=>  CLB  is  a Transport  Layer  LB  and works  on port number  but  can't  Route 
+
+
+
+
+
