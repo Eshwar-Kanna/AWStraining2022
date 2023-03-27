@@ -1,0 +1,39 @@
+
+
+                                    ---------------      Identity  Based Policy 
+            Access Management    
+                                    ---------------       Resource  Based  Policy 
+
+Permission    Boundary  :
+
+             Giving   full access of any service to  a user   is  not  best  practice to  set  some  limits  by gining   full access we  set  boundary limit .
+
+AWS  Organization :
+          
+            To manage   multiple  AWS  Account   we create   an  AWS   Organization   and  we  Associate   all  required  Accounts  in it 
+
+        =>  Every  Organization  have  one management  / master  Account  
+        =>  Create   or  update   an  account  as master   account   and  other  account  as  prod  
+
+Go to AWS  Organization   ->  create  an Organization   ->  Add an AWS  Account of  prod  created  above   -> and accept invitation  in that  Account
+
+        =>   entire  Security  is  managed by  SCP  ( security  control  policy  )  enable  service  control  policy 
+
+        =>  Create  or  attach  Policy   to  the  Accounts  in  Organization 
+
+        =>  Create  groups  in Organization  such  as  Finance , HR  and  Admin  .  allocate the user according to the group  respectively   using more option in Action
+        
+        =>  the group  is known  as OU ( Organization  Unit  )  and we  can attach  the  AWS  Accounts  to  the OU  as  per  requirement   
+                    and can move the Accounts  to the  respective  OU   and  we  can attach policies per OU  
+
+
+
+Resource  Access  Manager :
+
+                    To share resource of one  account  to another  account . we  can  select  the  Resource and  Share  it  to  other  Account  and  After 
+                            Associated  we  can see  resource  in shared resources of  Destination Account 
+
+
+
+
+
