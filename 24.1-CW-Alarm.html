@@ -1,0 +1,29 @@
+
+
+                                Cloud Watch 
+
+
+                  --------->   Metrics              Ec2      ----------->    CPU load  
+    Monitoring   ---------->   Logs                 VPC     ----------->    Flow log
+                  --------->   Events               S3      ----------->    Bucket
+
+
+We can  see  the graph  of  each  monitored   data  to  analyze  
+we  create  a  rule  for  each  monitoring  data  such  that  for  any  failure  of  resource    or  exceeding  the  limit of   resource   it  performs  action  given in rule 
+
+
+1.    Metrics 
+
+            select   an instance   ---->  in  monitoring  ----->  Manage Detailed  Monitoring  ----->  Enable  ( charges )  to monitor per each spec time 
+
+
+In clodwatch  --->   All metrics  (  can see metrics  of  selected region )   
+        choose  Mumbai   ---> per  instance metrics  --->  CPU  Utilization   and  add  to  search  and  add to graph  for  graphical 
+
+In Alarm   ----->   create  Alarm  ----> Ec2  (  any  Instance )  ----->   set  a  threshold  limit  --->  configure Actions  ----> 
+                ( SNS , create new ,  give  email  )  and  create     topic  then  confirm  the  mail  and  next  ,  name  (  mywebalarm )  create 
+
+
+
+Then  as  soon  as threshold  of  CPU  utilization   exceeds it  sends  mail 
+
