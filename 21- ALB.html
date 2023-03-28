@@ -1,0 +1,97 @@
+
+
+              Application  Load  Balancer  
+
+
+                  Domain  Name   /  Path  
+
+
+=>  the  path  decides  which  server  to  connect   the  client  
+
+=>  The  data we  search  like  in  google will be stored in  Querrystring  and  search that in  database
+
+=>  CLB  cannot work  for the URL  containing  path  since  it  cannot reach to  the Application Layer  of  OSI  model 
+
+=>  The Path   is  Stored in  Header  and sent   to  application   layer   
+
+                                      
+
+
+              client  -------------------------  >   www.google.com  [  ALB ] 
+
+
+                                        
+                                /search                                                         /mail
+
+                    EC2                     EC2                                       EC2                   EC2
+
+
+    ------------------  target group 1 --------------------------    -------------------   target  group  2  ----------------------
+
+
+for  creating  an  ALB   we  must  need  a target Group  
+
+ Launch  4  instances  in private  subnet  
+
+connect each  instance  
+
+edit inbound  traffic  of  each  and  allow  all traffic for all 
+ 
+
+instance 1 :   
+
+       mkdir    /var/www/html/search 
+       echo  "  Iam   search  A  "    >  /var/www/html/search/index.html
+
+instance  2  :
+
+       mkdir    /var/www/html/search 
+       echo  "  Iam   search  B  "    >  /var/www/html/search/index.html
+
+
+instance  3 : 
+
+       mkdir    /var/www/html/mail 
+       echo  "  Iam   mail  A  "    >  /var/www/html/mail/index.html
+
+instance 3 :
+
+       mkdir    /var/www/html/mail 
+       echo  "  Iam   mail  B  "    >  /var/www/html/mail/index.html
+
+
+
+Using  curl  command check by connecting to  each  instance 
+
+
+Creating  Target  Groups  
+
+
+      1.  Target Groups    ->  Choose instances   ->  tgsearch  ->  HTTP  80  , mylwvpc , HTTP ,  /search  , select two instances running in Search 
+
+      2.  Target Groups    ->  Choose instances   ->  tgsearch  ->  HTTP  80  , mylwvpc , HTTP ,  /mail  , select two instances running in mail
+
+Create  a Load  Balancer   or  we  can   migrate  the  Existing  one
+
+
+      Creating   ALB
+
+                myalb  ; Internet  facial  ,  IPV4  , mylwvpc  , select both  in  mapping   ,  subnet  public , 
+                (  create  a sg , allow all traffic  alb   description  use  same  VPC  we  are  creating   ALB  )  ,  HTTP  80  tgsearch  and  create   LB
+
+
+
+In   Listener   edit  Rules  (+)   insert  rule  
+
+1.  If  (  Path )    /mail    then  tgmail  
+2.  If  ( Path  )    /search  then  tgsearch 
+3.  If  (  Path )    /login   then  Fixed  Response  (  ur  not  allowed  )
+
+
+=>  ALb  have  more  latency   to minimize  we  use  NLB
+
+=>  We can  also  define  two  tg  for  same path  and  specify   %  of  connection  
+
+
+
+
