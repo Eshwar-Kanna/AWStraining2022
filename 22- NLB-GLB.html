@@ -1,0 +1,42 @@
+
+
+
+                                                                  Network Load Balancer 
+                                                                  
+    =>  it is used when the maximum number of requests hit the srver at an instant 
+    
+    
+    
+                                              ALB               TG  Search  
+    client   --------->  NLB  -------->       ALB 
+                                              ALB               TG  Mail
+                                              
+                                              
+      NLB  is  given  an EIP  and  IP  of  ALB  is  dynamic 
+      
+      NLB  is much  faster  than   ALB 
+      
+      
+      
+  *   creating  an  NLB  
+  
+        mynalb  --->  internet facing  --->  IPV4  --->   mylwvpc  ----->  public  subnet ( for subnet we have an option to use  if needed  )  ----->  TCP 80
+                          --->  in Target Group  Create  (    ALB , VPC , HTTP  , / , ALB  , and assign  created  tg  )  
+                                                                    
+                                                                    
+  *  creating  Gateway Load Balancer 
+  
+          It acts as IPS / IDS  that secure the server from  the mallicious  data in network  packets  
+          
+          
+                                                    ALB           TG 1 
+          client  --->   GLB  --->  NLB   ---->         
+                                                    ALB           TG 2 
+                                                                    
+                                                                    
+            createing  GLB  is similar  to  all above  but  in  IP  Listener  Routing  while  creating  TG  it  Should  support  GREVE  protocal  and  Enable it 
+                            
+          
+                                              
+                                              
+                                              
