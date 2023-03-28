@@ -1,0 +1,37 @@
+
+
+
+
+
+                                              Auto Scaling  Group  
+
+                  utilization                                      -----> Cloud Watch
+          Ec2  --------------------->          metrics Monitoring  --------------------->    ASG
+
+
+=>   after maximum   Utilization    of  resources  the ASG  auto  trigger  and perform  some  action  such  that the client  gets  better service called   Auto Scaling 
+
+        ex :  If th RAM used   is  90%   it  launch   one more  instance 
+
+=>   For  setting  up   Auto Scaling  we  create   two  rules  
+
+            one for scale  out  and  other  to  scale in 
+
+1. create  an empty  target  Group 
+          instances  , mytg  , mylwvpc , 
+
+2.  create an ALB  
+            myalbasg  , mylwvpc  , both public , sg ( allow all  )  , ( HTTP    80  mytg   )  and create 
+
+3.  create a Launch  Configuration 
+            name  , AMI  , t2.micro  , sg(existed )   ,  key pair  
+
+4.  create an Auto  Scaling  Group 
+            myautoasg     ,  select created configuration   ,  mylwvpc    , private subnets   ( both )  ,  scaling  None  and  create 
+
+Automatically an instance launched to  provide resources 
+
+we  can also  create a schedule action  in  ASG to  scale out  at a  particular period   of  time  
+
+
+            
