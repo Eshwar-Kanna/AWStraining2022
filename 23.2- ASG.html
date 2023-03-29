@@ -1,0 +1,46 @@
+
+
+
+
+
+
+         ASG   (  Auto scaling  Group  )  --->   Edit  ----->  Desired  Capacity ( 2 ) 
+
+           then  it  auto   launch  two  instances  and  attach  to  the  target Group  in  ALB .  Connect to  each  instance  and add  data in html folder 
+
+
+      copy   dns  of  ALB  and Connect  from   Browser  and  we  connect  to  Instances 
+
+
+ASG  ---->  select  Existing   --->  Automatic  Scaling   --->  Dynamic  Scaling  --->  Create Policy  (  target tracking  policy  , mytarget  , CPU utilization  , 50  ) and  create 
+
+as  soon  as the  limit exceeds  then  ALB Launch one  more instance  . it  launches  as the  load  balances 
+
+An  alarm  is  created in  Cloud Watch and  that gives info  to  ALB  .
+
+we  use  yes  command from  stress to increase load  of  CPU  
+
+amazon-linux-extras   install   epel  
+
+    yum install stress   -y
+
+yes
+
+Bydefault   when  we  create  Dynamic Scaling  it  creates  two  alarms one is to launch when exceeds and the other to terminate when  lower  the limit 
+
+=>  caching  database  ------>  redis  ( for  centralized  storage of multiple instances )
+
+Traget Groups  ---->   Attributes ----> Edit  ---->  Enable ---> Enable  Stickness (  load balancer cookie  ,  1 min  ) and  save 
+
+when  stickness   enabled  then  when a client connect  to  a  Load Balancer it  assign  to one instance and 
+            when  the  same client  connects to  LB  it will  assign to  the same instance
+
+Now  connect to  webpage with  dns and  refresh then  even though  we  refresh  for  multiple times we  will  be connected to  same  instance 
+
+=> stickness  time  is  to define the time to what extent  of time the browser should hold the cookies and keep connection to same instance 
+
+
+
+
+ 
+ 
