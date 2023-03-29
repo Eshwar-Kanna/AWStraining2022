@@ -1,0 +1,51 @@
+
+
+
+creating  custom metrics to monitor  certain  resources  for which  the AWS  don't provide monitoring  like  memory  and  RAM
+
+    to  create  using  CLI   :  we  can run  cmd in OS Prompt  or  AWS  Cloudshell  at  top
+
+use  commands  from  " AWS Cloudwatch put-metric-datapoint"  document  and update the data according to our instance  details  in  
+                      --dimensions   country=India   , Team=web
+
+Cloud watch  ---> Metrics --->  All  -->  Created  ns  found in custom ns  
+
+      to  get info  of  RAM  or  Memory  
+
+      free  -m   |  tail -1   |  Head 2
+
+in  aws we use        awk '[print($3)]'      to  print  3rd  feature element  in  a row 
+
+To  create metrics  of that  particular  element 
+
+    x=$(free -m  |  tail  -1  |  Head  2  | awk  '[print ($3)]' )
+
+    echo  $x     ---->  here we get the output of command stored in x 
+
+but  to get the current value we should  run both  commands each time by giving the $x  to  --value in command  instead this   to  get metrics 
+
+Cloud Watch     
+
+*  Metrics  :
+
+              Dashboards  --->  Create ( mydashboard  , line  ,  metrics  , CPU Utilization  )  custom  1 month   ---> Add  Widgets  to get multiple --> SAVE 
+
+
+*  Events    :
+
+              Rules  --->  Create  Rule  (  event Pattern   , S3  , Amazon S3 , spec , Object  del  , spec  bucket ( any one ) --> Add  target 
+
+                        (  SNS ,  selct Topic  ) , Targets  to  perform  action for  event 
+
+*  Logs    : 
+
+             log group in Cloud Watch  --->  create  --->  web name --> retention 1 week  and  create 
+
+          go to VPC  --->  flow logs   -->  create  (  mylogcw , all , 1 min  , send to cloudwatch logs ) , web  , Admin all power  , create flow log
+
+
+    connect to  instance in that VPC  and    cd  /var/logs
+
+=>  unified  Cloud watch  agent  used  to  capture  logs  locally   and  send  to  cloud watch 
+
+
