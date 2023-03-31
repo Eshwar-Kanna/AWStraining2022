@@ -1,0 +1,91 @@
+
+
+we can enable IPV6 CIDR  for a  VPC  while creating  or  Even after creating from Actions and when we enable it then the CIDR automatically routes to the routing table
+
+=>  To add or Allow  every  IPV6  we add  ::/0   in  routing table  with  Egress Gateway
+
+
+                                                       -------------->                     -------------->       Ec2 
+Internet Gateway :                          Public                               IGW                                          ipv4 / ipv6  (supported )                        
+                                                       <---------------                    <--------------       Ec2 
+                                                       
+
+                                                       --------------x                     --------------x       Ec2 
+NAT Gateway :                               Public                               IGW                                          only ipv4   (supported )                        
+                                                       <---------------                    <--------------       Ec2 
+                                                       
+                                                       
+                                                       
+      To get IPV6  Supported we  create  an Egress  Gateway   and  Route in the Routing  Table with Source  as Egress  gateway
+      
+  
+  To  have connectivity  between two private environments  we create a Tunnel for both to communicate each other securely
+
+                          -------------->                                ------------------>     
+     Private  env  1                              Tunnel  /  VPN                                    Private env 2
+     ( VPN endpoint )     <--------------                                <------------------        (  client  VPN )
+     
+     
+     
+     
+     Hybrid  (  Public  +  Private  env   in  same Account  )  
+     
+                                             Client  
+          
+          AWS  Cloud  (  Public  )           
+                                              
+      Public  resources  +  Private resources   --->  VGW  ========>  Internet   <============   CGW   <-----------  Database  LDAP ( Private Env )                                      
+                                                         Site  -  to  - site  VPN  ( IPSEC  Protocal  )
+                                                         
+                                                         
+                                                         
+     In  the  Above  Scenario  the  client  can  access  the  resources  of  cloud  that  are  public  but  cannot  to the comapny  since  its  private 
+     and the Private  resources  in  cloud  part  of VPN  can  only   communicate  to  company  Environment 
+     
+     
+     =>  VPC  Endpoints :   We  use  When their  is to  communicate  or  connect  to  one  Particular  resource ( like  an   Instance  of  Private  Subnet )
+     
+     =>  we  can  communicate to  multiple  companies ( Private env's )  using  single  VGW  of  a VPC  called  VPN  Cloud  Hub 
+     
+     
+                                  ----------------------------------->   company A 
+              VPC  -----  VGW     ----------------------------------->   company B
+                                  ----------------------------------->   company C
+                                      (  VPN  Cloud  Hub ) 
+                                      
+     
+     
+     
+    **   AWS  Direct  Connect  
+    
+    
+        VPC ( VGW)   ---- endpoint   --------------  endpoint  ----   (  Direct Connect Zone  spec city  )  <----------------->  Site  (  customer router )
+        
+  
+  
+      in  above  if  any  data  tranferred from  customer  Router it  will  not  be encrypted to have  Encryption  we  use Site-to-site VPN 
+      
+      
+ Transit  Gateway   :   To  connect  or  communicate   VPC's when  we   have  multiple    VPC's  to  communicate each other   
+        its  not better practice to create multiple peering for each specifically   instead  we  create Transit  Gateway 
+        
+        
+        
+              VPC  Peering                                                                          Transit  Gateway 
+              
+              
+              A ----------------- B                                                             A   ----------------- | | ---------------- B
+              |                   |                                                                                   | |
+              |                   |                                                                                   TG
+              |                   |                                                                                   | |
+              C ----------------  D                                                             C --------------------| |----------------- D
+              
+              
+   (  A - B  , B- D , D - C , C - A , A - D , B - C )                                                   ( A - TG  ,  B - TG , C - TG  , D - TG )
+   
+   
+   
+   
+   
+                          
+     
